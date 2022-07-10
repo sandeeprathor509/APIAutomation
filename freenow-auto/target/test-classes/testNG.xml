@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BioAuto-V2 Automation Suite" verbose="1" thread-count="2" data-provider-thread-count="1" parallel="tests"
+       configfailurepolicy="continue">
+    <test name="Web Test">
+        <parameter name="HF" value="ios"/>
+        <parameter name="BROWSER" value="chrome"/>
+        <parameter name="ENV" value="qa"/>
+        <parameter name="LOCALE" value="en_US"/>
+        <parameter name="PLATFORM" value="web"/>
+        <classes>
+            <class name="TestRunnerWeb"/>
+        </classes>
+    </test>
+</suite>
