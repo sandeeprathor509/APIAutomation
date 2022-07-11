@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0 
     steps:
-      - checkout:
+      - checkout
       - run:
           name: perform maven test 
           command:  mvn clean
@@ -14,7 +14,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0 
     steps:
-      - checkout:
+      - checkout
       - run:
           name: perform maven test
           command:  mvn clean test
