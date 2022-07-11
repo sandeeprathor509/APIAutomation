@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  API-Automation:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: mvn clean test
+
+workflows:
+  sample: 
+    jobs:
+      - API-Automation
+
