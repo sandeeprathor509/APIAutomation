@@ -8,7 +8,7 @@ jobs:
 
       - run:
           name: Build
-          command: mvn clean install
+          command: mvn clean test -Dsurefire.APItestNG.xml
 
       - run:
           name: Test
