@@ -2,23 +2,19 @@ version: 2.1
 
 jobs:
   build:
-    working_directory: ~/APIAutomation/freenow-auto
     docker:
       - image: cimg/openjdk:11.0 
     steps:
       - checkout:
-          path: ~/freenow-auto
       - run:
           name: perform maven test 
           command:  mvn clean
 
   test:
-    working_directory: ~/freenow-auto
     docker:
       - image: cimg/openjdk:11.0 
     steps:
       - checkout:
-          path: ~/freenow-auto
       - run:
           name: perform maven test
           command:  mvn clean test
