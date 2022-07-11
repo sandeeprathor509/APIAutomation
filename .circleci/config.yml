@@ -5,14 +5,9 @@ jobs:
       - image: cimg/openjdk:11.0
     steps:
       - checkout
-
-      - run:
-          name: Build
-          command: mvn clean test -Dsurefire.APItestNG.xml
-
       - run:
           name: Test
-          command: mvn test
+          command: mvn -s ./src/test/resources/APItestNG.xml clean test
 
 workflows:
   sample: 
