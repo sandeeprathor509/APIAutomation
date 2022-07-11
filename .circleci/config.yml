@@ -4,12 +4,16 @@ version: 2.1
 jobs:
   API-Automation:
     docker:
-      - image: cimg/openjdk:11.0
+      - image: cimg/openjdk:11.0 
     steps:
+      - run:
+          working_directory: ~/freenow-auto
+          name: perform maven clean
+          command: mvn clean
       - checkout
       - run:
           working_directory: ~/freenow-auto
-          name: Test
+          name: perform maven test
           command:  mvn -s ./src/test/resources/APItestNG.xml clean test
 
 workflows:
