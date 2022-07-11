@@ -2,13 +2,14 @@ version: 2.1
 
 jobs:
   build:
-    working_directory: ~/freenow-auto
+    working_directory: ~/freenow-auto/pom.xml
     docker:
       - image: cimg/openjdk:11.0 
     steps:
-      - checkout
+      - checkout:
+          path: ~/freenow-auto
       - run:
-          name: perform maven test
+          name: perform maven test 
           command:  mvn clean
 
   test:
@@ -16,7 +17,8 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0 
     steps:
-      - checkout
+      - checkout:
+          path: ~/freenow-auto
       - run:
           name: perform maven test
           command:  mvn clean test
