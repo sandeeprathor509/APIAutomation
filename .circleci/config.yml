@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Test
-          command: mvn -s ./src/test/resources/APItestNG.xml clean test
+          command: mvn clean test
 
 workflows:
   sample: 
