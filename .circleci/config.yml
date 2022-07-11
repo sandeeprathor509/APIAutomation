@@ -1,13 +1,30 @@
-dependencies:
-  override:
-    - mvn -DskipTests clean install dependency:resolve-plugins dependency:go-offline
+version: 2.1
 
-test:
-  override:
-    - mvn -o surefire:test
+jobs:
+  build:
+    working_directory: ~/freenow-auto
+    docker:
+      - image: cimg/openjdk:11.0 
+    steps:
+      - checkout
+      - run:
+          name: perform maven test
+          command:  mvn clean
 
-deployment:
-  main:
-    branch: master
-    commands:
-      - mvn -s .circleci.settings.xml -DskipTests deploy
+  test:
+    working_directory: ~/freenow-auto
+    docker:
+      - image: cimg/openjdk:11.0 
+    steps:
+      - checkout
+      - run:
+          name: perform maven test
+          command:  mvn clean test
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+           - build
