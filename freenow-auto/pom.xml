@@ -26,7 +26,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testNG.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/APItestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -43,6 +43,11 @@
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>io.packagecloud.maven.wagon</groupId>
+            <artifactId>maven-packagecloud-wagon</artifactId>
+            <version>0.0.4</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -140,4 +145,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>packagecloud-examplecorp</id>
+            <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+        </repository>
+        <snapshotRepository>
+            <id>packagecloud-examplecorp</id>
+            <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
