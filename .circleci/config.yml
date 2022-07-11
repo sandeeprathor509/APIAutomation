@@ -8,7 +8,7 @@ jobs:
     steps:
       - run:
           working_directory: ~/freenow-auto/pom.xml
-          name: perform maven clean
+          name: perform maven
           command: mvn clean
       - checkout
     
