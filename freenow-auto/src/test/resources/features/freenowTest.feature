@@ -18,3 +18,8 @@ Feature: Verify the JSONPlace holder type code functionality
   Scenario: Validate the photos functionality
     Given Get the list of photos
     Then Filtering out the photo by using the albumId "1"
+
+  Scenario: Validate the comment for some user's posts
+    Given Search for the user "Samantha" and save the details
+    Then Search the post with the searched userId and save the postId
+    And Search for the saved user email using postId

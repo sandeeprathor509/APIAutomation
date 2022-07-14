@@ -1,16 +1,29 @@
 version: 2.1
+
 jobs:
-  API-Automation:
+  build:
+    working_directory: ~/APIAutomation
     docker:
-      - image: cimg/openjdk:11.0
+      - image: cimg/openjdk:11.0 
     steps:
       - checkout
       - run:
-          name: Test
-          command: mvn clean test
+          name: perform maven test 
+          command:  mvn clean
+
+  test:
+    docker:
+      - image: cimg/openjdk:11.0 
+    steps:
+      - checkout
+      - run:
+          name: perform maven test
+          command:  mvn clean test
 
 workflows:
-  sample: 
+  build_and_test:
     jobs:
-      - API-Automation
-
+      - build
+      - test:
+          requires:
+           - build
